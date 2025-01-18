@@ -12,7 +12,6 @@ class BookApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
     public function it_can_fetch_books_via_api()
     {
         // Create some books in the database

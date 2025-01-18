@@ -10,7 +10,6 @@ class BookControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
     public function it_can_store_a_book()
     {
         $data = [
@@ -26,7 +25,6 @@ class BookControllerTest extends TestCase
         $this->assertDatabaseHas('books', ['title' => 'New Book']);
     }
 
-    /** @test */
     public function it_can_fetch_all_books()
     {
         $books = Book::factory()->count(3)->create();
@@ -37,7 +35,6 @@ class BookControllerTest extends TestCase
         $response->assertSee($books->first()->title); // Check if the book title appears
     }
 
-    /** @test */
     public function it_can_update_a_book()
     {
         $book = Book::factory()->create();
