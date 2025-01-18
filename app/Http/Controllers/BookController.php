@@ -7,9 +7,16 @@ use Inertia\Inertia;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $books = Book::all();
+        // return Inertia::render('BookIndex', ['books' => $books]);
+        // Check if the request is for API
+        if ($request->wantsJson()) {
+            return response()->json($books);
+        }
+
+        // Otherwise, return the Inertia response for the web
         return Inertia::render('BookIndex', ['books' => $books]);
     }
 
